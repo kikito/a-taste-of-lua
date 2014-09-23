@@ -369,6 +369,7 @@ ipairs          pairs         setfenv
 ---
 
 ![float-left](images/rocks.png)
+## Libraries
 ### luarocks.org
 ### rocks.moonscript.org
 ### ~700 rocks
@@ -376,7 +377,7 @@ ipairs          pairs         setfenv
 ---
 
 ## Lua feels like
-### A better, smaller javascript
+### A faster, smaller, better javascript
 
 ```javascript
 
@@ -417,6 +418,10 @@ new_age = redis.incr("age") # 26
 ---
 
 ![fullscreen](images/bartender.jpg)
+
+---
+
+![fullscreen](images/bartender2.jpg)
 
 ---
 
