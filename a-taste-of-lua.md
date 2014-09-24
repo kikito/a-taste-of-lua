@@ -22,29 +22,6 @@ title: A Taste of Lua
 # Part 1: Intro
 
 ---
-
-# It's Lua, not LUA
-
----
-
-![fullscreen](images/brazil.svg)
-
----
-
-# SOL &rArr;
-## Simple Object Language
-
----
-
-![fullscreen](images/sol.png)
-
----
-
-# Lua &rArr;
-## “Moon” in Portuguese
-## (No Initials)
-
----
 = data-transition='fade'
 
 ![fullscreen](images/lua-logo.png)
@@ -56,6 +33,10 @@ title: A Taste of Lua
 
 ---
 
+![fullscreen](images/brazil.svg)
+
+---
+
 ![float-left](images/roberto.png)
 
 ## Roberto Ierusalimschy
@@ -63,10 +44,7 @@ title: A Taste of Lua
 
 ---
 
-![float-left](images/roberto.png)
-
-## Roberto Ierusalimschy
-> Lua is portable, powerful, __embeddable__ & fast.
+## Embeddable
 
 ---
 
@@ -78,23 +56,19 @@ title: A Taste of Lua
 
 ---
 
-FIXME: Picture of General Language
+![fullscreen](images/nut.jpg)
 
 ---
 
-FIXME: Picture of System created with General Language
+![fullscreen](images/car.png)
 
 ---
 
-FIXME: Picture of System
+![fullscreen](images/driver.jpg)
 
 ---
 
-FIXME: Picture of System with Embedded Language
-
----
-
-FIXME: Picture of Robotic Arm
+![fullscreen](images/robot_arm.jpg)
 
 ---
 
@@ -291,8 +265,8 @@ local person = {name = 'peter', age = 21}
 print(person['name']) -- peter
 print(person.name) -- also peter
 
-for k,v in pairs(person) do
-  print(k .. ' => ' .. v)
+for key,value in pairs(person) do
+  print(key .. ' => ' .. value)
 end
 --[[
   name => peter
@@ -302,7 +276,7 @@ end
 
 ---
 
-### Hash vs Array
+### Hash, Array == Table
 
 ```lua
 local a      = {'a', 'b', 'c', 'd'}
@@ -354,7 +328,7 @@ string, number, table, boolean, function, thread, nil
 string, math, table, os, io, coroutine, debug
 ```
 
-### Top-level functions (~30)
+### Built-in functions (~30)
 
 ```lua
 assert          load          pcall       setmetatable
@@ -451,12 +425,13 @@ redis.incr('counter') if counter.is_a? numeric
 
 ```ruby
 
-lua_code = <<-EOS
+lua_code =
+%{
   local counter = redis.call("GET", KEYS[1])
   if type(tonumber(counter)) == "number" then
     return redis.call("INCR", KEYS[1])
   end
-EOS
+}
 
 redis.eval(lua_code, ["counter"])
 
@@ -564,19 +539,71 @@ coronalabs.com/i-want-to-build/business-apps/
 
 ---
 
-FIXME: Add code example for Openresty
+``` conf
+http {
+  server {
+    location /hello {
+      set_unescape_uri $name $arg_name;
+      set_if_empty $name "Anonymous";
+      echo "Hello, $name!";
+    }
+  }
+}
+```
+
+Example:
+
+```bash
+$ curl http://localhost/hello?name=andrew
+# Hello, andrew!
+```
+
 
 ---
 
-FIXME: Add APItools Logo
+``` conf
+http {
+  server {
+    location /hellolua {
+      content_by_lua_file 'hello.lua'
+    }
+  }
+}
+```
+
+
+``` lua
+-- hello.lua
+local name = ngx.var.arg_name or "Anonymous"
+ngx.say("Hello, ", name, "!")
+```
+
+Example:
+
+```bash
+$ curl http://localhost/hellolua?name=peter
+# Hello, peter!
+```
 
 ---
 
-FIXME: APItools schema
+![fullscreen](images/apitools-logo.png)
 
 ---
 
-FIXME: APItools Screenshot
+![fullscreen](images/apitools-schema1.svg)
+
+---
+
+![fullscreen](images/apitools-schema2.svg)
+
+---
+
+![fullscreen](images/apitools-screenshot.png)
+
+---
+
+![fullscreen](images/apitools-screenshot-pipeline.png)
 
 ---
 ```lua
@@ -590,14 +617,17 @@ end
 
 ```lua
 return function(req, next_middleware)
-  local res  = next_middleware()
 
-  res.status = 200
+  local res  = next_middleware()
   res.body   = 'Hodor'
 
   return res
 end
 ```
+
+---
+
+![fullscreen](images/hodor.png)
 
 
 ---
