@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A Taste of Lua</title>
+    <link href="css/reset.css" rel="stylesheet" />
+    <meta name="author" content="Enrique García Cota">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="css/favicon.png" />
+    <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
+    <!-- Code Prettifier: -->
+<link href="css/highlight.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="css/style.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,800italic,300,400,800' rel='stylesheet' type='text/css'>    
+
+
+  </head>
+
+  <body>
+  <div class="fallback-message">
+  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+  </div>
+    <div id="impress">
+    <div class='step' >
+    
+<h1>A taste of Lua</h1>
+
+<h4>Enrique García Cota</h4>
+
+<h4>@otikik / <a href="http://kiki.to">http://kiki.to</a></h4>
+
+<h4><a href="http://apistrategyconference.com/">APIStrat</a>, 2014-09</h4>
+</div>
+      <div class='step' >
+    
+<p><img src="images/3scale.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<h1>3 main parts:</h1>
+
+<h2>Intro</h2>
+
+<h2>Feel</h2>
+
+<h2>Applications</h2>
+</div>
+      <div class='step' >
+    
+<h1>Part 1: Intro</h1>
+</div>
+      <div class='step'  data-transition='fade'>
+    
+<p><img src="images/lua-logo.png" alt="fullscreen"></p>
+</div>
+      <div class='step'  data-transition='fade'>
+    
+<p><img src="images/earth-moon.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/brazil.svg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/roberto.png" alt="float-left"></p>
+
+<h2>Roberto Ierusalimschy</h2>
+
+<blockquote>
+<p>Lua is portable, powerful, embeddable &amp; fast.</p>
+</blockquote>
+</div>
+      <div class='step' >
+    
+<h2>Embeddable</h2>
+</div>
+      <div class='step' >
+    
+<h2>General purpose language</h2>
+
+<p><center>~ vs ~</center></p>
+
+<h2>Embedable language</h2>
+</div>
+      <div class='step' >
+    
+<p><img src="images/nut.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/car.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/driver.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/robot_arm.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/videogames.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<h2>Portable</h2>
+</div>
+      <div class='step' >
+    
+<h2>Portable</h2>
+
+<h3>&rArr; C99</h3>
+</div>
+      <div class='step' >
+    
+<h2>Small</h2>
+</div>
+      <div class='step' >
+    
+<h2>Small</h2>
+<pre><code class='prettyprint bash'>git clone https://github.com/LuaDist/lua.git
+cloc lua/src
+</code></pre>
+<h3>&rArr; ~ 15k (C99)</h3>
+</div>
+      <div class='step' >
+    
+<h2>Small</h2>
+<pre><code class='prettyprint bash'>git clone https://github.com/LuaDist/lua.git
+cloc lua/src
+</code></pre>
+<h3>&rArr; ~ 200KB compiled</h3>
+</div>
+      <div class='step' >
+    
+<h2>Implementations</h2>
+</div>
+      <div class='step' >
+    
+<h2>Lua (5.1, 5.2, 5.3)</h2>
+
+<h2>LuaJIT</h2>
+
+<h2>eLua</h2>
+
+<h2>...</h2>
+</div>
+      <div class='step'  data-transition='fade'>
+    
+<p><img src="images/lua-venn-1.svg" alt="fullscreen"></p>
+</div>
+      <div class='step'  data-transition='fade'>
+    
+<p><img src="images/lua-venn-2.svg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<h1>Part 2: Feel</h1>
+</div>
+      <div class='step' >
+    
+<h2>Learn Lua in 15 minutes</h2>
+
+<p><a href="http://tylerneylon.com/a/learn-lua/">http://tylerneylon.com/a/learn-lua/</a></p>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint lua'>local name   = 'Peter'
+local age    = 35
+local genter = "male"
+
+print(name .. " is a " .. age .. ' years old ' .. gender)
+</code></pre><pre><code class='prettyprint bash'>local multilineString = [[
+  Lorem ipsum
+  dolor sit amet
+]]
+</code></pre><pre><code class='prettyprint lua'>-- a single-line Lua comment
+--[[
+  a multi-line comment in Lua
+]]
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Functions</h3>
+<pre><code class='prettyprint lua'>-- Function declaration
+local function sum(a,b)
+  return a + b
+end
+
+print(sum(3,2)) -- 5
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Functions</h3>
+<pre><code class='prettyprint lua'>-- Almost the same as before
+local sum = function(a,b)
+  return a + b
+end
+
+print(sum(3,2)) -- 5
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Conditionals</h3>
+<pre><code class='prettyprint lua'>local function isEven(n)
+  if n % 2 == 0 then
+    return true
+  end
+  return false
+end
+
+print(isEven(5)) -- false
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Conditionals</h3>
+<pre><code class='prettyprint lua'>local function isEven(n)
+  return n % 2 == 0
+end
+
+print(isEven(5)) -- false
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Arrays &amp; Numeric Loop</h3>
+<pre><code class='prettyprint lua'>local a = {'a', 'b', 'c', 'd'}
+print(a[1]) -- a
+
+local length = #a
+
+for i = 1, length do
+  print(a[i])
+end
+</code></pre></div>
+      <div class='step' >
+    
+<h3>While loop</h3>
+<pre><code class='prettyprint lua'>local a = {'a', 'b', 'c', 'd'}
+print(a[1]) -- a
+
+local length = #a
+
+local i = 1
+while i < length do
+  print(a[i])
+  i = i + 1
+end
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Repeat until loop</h3>
+<pre><code class='prettyprint lua'>local a = {'a', 'b', 'c', 'd'}
+print(a[1]) -- a
+
+local length = #a
+
+local i = 1
+repeat
+  print(a[i])
+  i = i + 1
+until i > length
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Hashes / Objects</h3>
+<pre><code class='prettyprint lua'>local person = {name = 'peter', age = 21}
+
+print(person['name']) -- peter
+print(person.name) -- also peter
+
+for key,value in pairs(person) do
+  print(key .. ' => ' .. value)
+end
+--[[
+  name => peter
+  age => 21
+]]
+</code></pre></div>
+      <div class='step' >
+    
+<h3>Hash, Array == Table</h3>
+<pre><code class='prettyprint lua'>local a      = {'a', 'b', 'c', 'd'}
+local person = {name = 'peter', age = 21}
+
+print(a[1])
+print(person['name'])
+
+print(type(a)) -- table
+print(type(person)) -- table
+</code></pre></div>
+      <div class='step' >
+    
+<h2>Reuse</h2>
+</div>
+      <div class='step' >
+    
+<h2>Lua tables:</h2>
+
+<ul>
+<li>Arrays</li>
+<li>Hashes</li>
+<li>Structs</li>
+<li>Objects</li>
+<li>References</li>
+<li>Environments</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h2>Lua functions:</h2>
+
+<ul>
+<li>Values</li>
+<li>Blocks</li>
+<li>Scopes</li>
+<li>Iterators</li>
+<li>Generators</li>
+</ul>
+</div>
+      <div class='step' >
+    
+<h3>Types (~7)</h3>
+<pre><code class='prettyprint bash'>string, number, table, boolean, function, thread, nil
+</code></pre>
+<h3>Libraries (~7)</h3>
+<pre><code class='prettyprint lua'>string, math, table, os, io, coroutine, debug
+</code></pre>
+<h3>Built-in functions (~30)</h3>
+<pre><code class='prettyprint lua'>assert          load          pcall       setmetatable
+collectgarbage  loadfile      print       tonumber
+dofile          loadstring    rawequal    tostring
+error           module        rawget      type
+rawset          xpcall        getfenv     next
+unpack          getmetatable  require     select
+ipairs          pairs         setfenv
+</code></pre></div>
+      <div class='step' >
+    
+<p><img src="images/rocks.png" alt="float-left"></p>
+
+<h2>Libraries</h2>
+
+<h3>luarocks.org</h3>
+
+<h3>rocks.moonscript.org</h3>
+
+<h3>~700 rocks</h3>
+</div>
+      <div class='step' >
+    
+<h2>Lua feels like</h2>
+
+<h3>A faster, smaller, better javascript</h3>
+<pre><code class='prettyprint javascript'>
+// Very little of this stuff:
+[9,10,1,2].sort()
+> [1,10,2,9]
+
+</code></pre></div>
+      <div class='step' >
+    
+<h1>Part 3: Applications</h1>
+</div>
+      <div class='step' >
+    
+<p><img src="images/redis.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<blockquote>
+<p>Key-value data store</p>
+</blockquote>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint ruby'>require "redis"
+redis = Redis.new('localhost', 6379)
+
+redis.set("name", "peter")
+name = redis.get("name") # "peter"
+
+redis.set("age", "25")
+new_age = redis.incr("age") # 26
+</code></pre></div>
+      <div class='step' >
+    
+<blockquote>
+<p>Concurrent, but single threaded</p>
+</blockquote>
+</div>
+      <div class='step' >
+    
+<p><img src="images/bartender.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/bartender2.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint ruby'>
+counter = redis.get('counter')
+
+
+
+redis.incr('counter') if counter.is_number?
+
+</code></pre></div>
+      <div class='step' >
+    <pre><code class='prettyprint ruby'>
+counter = redis.get('counter')
+
+########## Multithreading  ##########
+
+redis.incr('counter') if counter.is_number?
+
+</code></pre></div>
+      <div class='step' >
+    <pre><code class='prettyprint ruby'>
+lua_code =
+%{
+  local counter = redis.call("GET", KEYS[1])
+  if type(tonumber(counter)) == "number" then
+    return redis.call("INCR", KEYS[1])
+  end
+}
+
+redis.eval(lua_code, ["counter"])
+
+</code></pre></div>
+      <div class='step' >
+    
+<p><img src="images/vim.png" alt="centered"></p>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint bash'>brew install vim --with-lua
+</code></pre>
+<p>-or-</p>
+<pre><code class='prettyprint bash'>brew install macvim --with-lua
+</code></pre></div>
+      <div class='step' >
+    
+<p><img src="images/neocomplete.gif" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/unite.gif" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint bash'>                    Startup     Speed
+
+      Vim script    0           1.498s
+      Python        0.0166s     0.027s (2000%)
+      Lua(jit)      0.0002s     0.001s (1152000%)
+</code></pre></div>
+      <div class='step' >
+    
+<p><img src="images/neovim.png" alt="centered"></p>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<h2>Corona SDK</h2>
+
+<p><img src="images/corona-sdk.png" alt="centered"></p>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<p>coronalabs.com/i-want-to-build/games/</p>
+
+<p><img src="images/corona-games.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/corona-platforms.png" alt="centered"></p>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<p>coronalabs.com/i-want-to-build/business-apps/</p>
+
+<p><img src="images/corona-apps.png" alt="centered"></p>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<h3><a href="http://www.love2d.org">www.love2d.org</a></h3>
+
+<p><img src="images/love2d.png" alt="centered"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/nginx.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/openresty.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/taobao.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/raspberry.png" alt="fullscreen"></p>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<h3><a href="http://www.techempower.com/benchmarks">www.techempower.com/benchmarks</a></h3>
+
+<p><img src="images/techempower-1.png" alt="centered"></p>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<h3><a href="http://www.techempower.com/benchmarks">www.techempower.com/benchmarks</a></h3>
+
+<p><img src="images/techempower-2.png" alt="centered"></p>
+</div>
+      <div class='step' >
+    
+<p>nginx.conf:</p>
+<pre><code class='prettyprint conf'>http {
+  server {
+    location /hello {
+      content_by_lua_file 'hello.lua'
+    }
+  }
+}
+</code></pre>
+<p>hello.lua:</p>
+<pre><code class='prettyprint lua'>local name = ngx.var.arg_name or "Anonymous"
+ngx.say("Hello, ", name, "!")
+</code></pre>
+<p>Example:</p>
+<pre><code class='prettyprint bash'>$ curl http://localhost/hello?name=peter
+# Hello, peter!
+</code></pre></div>
+      <div class='step' >
+    
+<p><img src="images/apitools-head.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/apitools-schema1.svg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/apitools-schema2.svg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/apitools-screenshot.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/apitools-screenshot-pipeline.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    <pre><code class='prettyprint lua'>return function(req, next_middleware)
+  req.headers['Authorization'] = 'My Secret'
+
+  return next_middleware()
+end
+</code></pre></div>
+      <div class='step' >
+    <pre><code class='prettyprint lua'>return function(req, next_middleware)
+
+  local res  = next_middleware()
+  res.body   = 'Hodor'
+
+  return res
+end
+</code></pre></div>
+      <div class='step' >
+    
+<p><img src="images/hodor.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<h1>Conclusion</h1>
+</div>
+      <div class='step' >
+    
+<p><img src="images/destroyer.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/soldier.png" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<p><img src="images/macgyver.jpg" alt="fullscreen"></p>
+</div>
+      <div class='step' >
+    
+<h1>Questions?</h1>
+
+<h4>Enrique García Cota</h4>
+
+<h4>@otikik / <a href="http://kiki.to">http://kiki.to</a></h4>
+</div>
+      <div class='step'  data-text='centered'>
+    
+<p><img src="images/macgyver2.jpg" alt="centered"></p>
+
+<h1>Thank you! <span class="applause">&#9734;</span></h1>
+
+      </div>
+    <script src="js/impress.js"></script>
+    <script>impress().init();</script>
+  </body>
+</html>
+    
