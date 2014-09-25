@@ -11,6 +11,10 @@ title: A Taste of Lua
 ### [APIStrat](http://apistrategyconference.com/), 2014-09
 
 ---
+
+![fullscreen](images/3scale.png)
+
+---
 # 3 main parts:
 
 ## Intro
@@ -221,7 +225,9 @@ print(isEven(5)) -- false
 local a = {'a', 'b', 'c', 'd'}
 print(a[1]) -- a
 
-for i = 1, #a do
+local length = #a
+
+for i = 1, length do
   print(a[i])
 end
 ```
@@ -233,8 +239,10 @@ end
 local a = {'a', 'b', 'c', 'd'}
 print(a[1]) -- a
 
+local length = #a
+
 local i = 1
-while i < #a do
+while i < length do
   print(a[i])
   i = i + 1
 end
@@ -248,11 +256,13 @@ end
 local a = {'a', 'b', 'c', 'd'}
 print(a[1]) -- a
 
+local length = #a
+
 local i = 1
 repeat
   print(a[i])
   i = i + 1
-until i > #a
+until i > length
 ```
 
 ---
@@ -405,7 +415,7 @@ counter = redis.get('counter')
 
 
 
-redis.incr('counter') if counter.is_a? numeric
+redis.incr('counter') if counter.is_number?
 
 ```
 
@@ -414,9 +424,9 @@ redis.incr('counter') if counter.is_a? numeric
 
 counter = redis.get('counter')
 
-########## CONTEXT SWITCH  ##########
+########## Multithreading  ##########
 
-redis.incr('counter') if counter.is_a? numeric
+redis.incr('counter') if counter.is_number?
 
 ```
 
@@ -539,41 +549,21 @@ coronalabs.com/i-want-to-build/business-apps/
 
 ---
 
+nginx.conf:
+
 ``` conf
 http {
   server {
     location /hello {
-      set_unescape_uri $name $arg_name;
-      set_if_empty $name "Anonymous";
-      echo "Hello, $name!";
-    }
-  }
-}
-```
-
-Example:
-
-```bash
-$ curl http://localhost/hello?name=andrew
-# Hello, andrew!
-```
-
-
----
-
-``` conf
-http {
-  server {
-    location /hellolua {
       content_by_lua_file 'hello.lua'
     }
   }
 }
 ```
 
+hello.lua:
 
 ``` lua
--- hello.lua
 local name = ngx.var.arg_name or "Anonymous"
 ngx.say("Hello, ", name, "!")
 ```
@@ -581,13 +571,13 @@ ngx.say("Hello, ", name, "!")
 Example:
 
 ```bash
-$ curl http://localhost/hellolua?name=peter
+$ curl http://localhost/hello?name=peter
 # Hello, peter!
 ```
 
 ---
 
-![fullscreen](images/apitools-logo.png)
+![fullscreen](images/apitools-head.png)
 
 ---
 
