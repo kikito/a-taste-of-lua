@@ -6,9 +6,10 @@ title: A Taste of Lua
 
 # A taste of Lua
 
-### Enrique García Cota (@otikik)
+#### Enrique García Cota
+#### @otikik / http://kiki.to
 
-### [APIStrat](http://apistrategyconference.com/), 2014-09
+#### [APIStrat](http://apistrategyconference.com/), 2014-09
 
 ---
 
@@ -639,7 +640,8 @@ end
 ---
 
 # Questions?
-### Enrique García Cota (@otikik)
+#### Enrique García Cota
+#### @otikik / http://kiki.to
 
 ---
 = data-text='centered'
